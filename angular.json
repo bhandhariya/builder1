@@ -21,10 +21,18 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/theme.less",
+              "src/styles.css",
+              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "./node_modules/froala-editor/css/froala_style.min.css"
             ],
             "scripts": []
           },
@@ -119,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "builder1"
+    }
+  },
+  "defaultProject": "builder1",
+  "cli": {
+    "analytics": "e4477707-b817-4bf1-9dcd-ceaf6cf441f9"
+  }
 }

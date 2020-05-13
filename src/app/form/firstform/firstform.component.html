@@ -1,0 +1,18 @@
+<div class="sample">
+    <h1 id="sample1" [froalaEditor]="Headingoptins" [(froalaModel)]="h1" ></h1>
+    <h2 id="sample1" [froalaEditor]="subheadingOptions" [(froalaModel)]="h2" ></h2>
+    <app-name *ngIf="namePara"  ></app-name>
+    <app-email *ngIf="emailPara"></app-email>
+    <mat-form-field>
+      <mat-label>Add Form fields</mat-label>
+      <mat-select  >
+        <mat-option *ngFor="let field of fields" [value]="field.value" (click)="openn(field)" >
+          {{field.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button id="edit" (click)="sub()" >Button</button>
+  </div>
+
+
+  

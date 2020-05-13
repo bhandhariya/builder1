@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NameComponent } from '../name/name.component';
 import { EmailComponent } from '../email/email.component';
+import { HttpClient } from '@angular/common/http';
+import '../../../../node_modules/froala-editor/js/plugins/edit_in_popup.min.js'
 
 
 interface Field {
@@ -60,9 +62,10 @@ export class FirstformComponent implements OnInit {
       this.emailPara="email"
     }
   }
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('/forms');
   }
   selected = 'option2';
 h1;h2;
@@ -70,7 +73,17 @@ h1;h2;
 @ViewChild(EmailComponent) email;
 
 sub(){
-  console.log(this.h1,this.h2,this.name.name,this.email.email);
+  var obj={
+    h1:this.h1,
+    h2:this.h2,
+    name:this.name.name,
+    email:this.email.email
+  }
+  console.log(obj)
+//  / console.log(this.h1,this.h2,this.name.name,this.email.email);
+  this.http.post('http://localhost:3000/form/create',obj).subscribe(r=>{
+    console.log(r)
+  })
   
 }
 }

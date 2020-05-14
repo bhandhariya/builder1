@@ -3,6 +3,7 @@ import { NameComponent } from '../name/name.component';
 import { EmailComponent } from '../email/email.component';
 import { HttpClient } from '@angular/common/http';
 import '../../../../node_modules/froala-editor/js/plugins/edit_in_popup.min.js'
+import FroalaEditor from 'froala-editor';
 
 
 interface Field {
@@ -65,7 +66,13 @@ export class FirstformComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('/forms');
+    new FroalaEditor('button#edit', {
+      events: {
+        contentChanged: function () {
+          console.log ('content changed');
+        }
+      }
+    })
   }
   selected = 'option2';
 h1;h2;

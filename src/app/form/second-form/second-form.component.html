@@ -11,11 +11,11 @@
   <mat-radio-group
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
-    [(ngModel)]="favoriteSeason">
+   >
     <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season" [froalaEditor]="option" > 
       {{season}}
     </mat-radio-button>
   </mat-radio-group>
-  <div>Your favorite season is: {{favoriteSeason}}</div>
+  <!-- <div>Your favorite season is: {{favoriteSeason}}</div> -->
   
   <button [froalaEditor]  >save</button>
